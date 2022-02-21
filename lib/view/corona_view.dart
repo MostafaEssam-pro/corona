@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CoronaView extends StatefulWidget {
+  const CoronaView({Key? key}) : super(key: key);
+
   @override
   State<CoronaView> createState() => _CoronaViewState();
 }
@@ -22,24 +24,24 @@ class _CoronaViewState extends State<CoronaView> {
         return Scaffold(
 
           appBar: AppBar(
-            title: Text('Corana'),
+            title: const Text('Corana'),
           ),
           body: Padding(
 
             padding: const EdgeInsets.all(0),
             child: Container(
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/coronaimages.jpeg'),
-                  fit: BoxFit.cover,
-                  repeat: ImageRepeat.noRepeat
-                )
-              ),
-
+              padding: const EdgeInsets.all(20),
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/coronaimages.jpeg'),
+                      fit: BoxFit.cover,
+                      repeat: ImageRepeat.noRepeat)),
               child: Column(
                 children: [
-                  const Text('Corona Virus App',style: TextStyle(color: Colors.white,fontSize: 20),),
+                  const Text(
+                    'Corona Virus App',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                   CustomDropdownButton(
                     hint: '-- country --',
                     nameFiled: country,
@@ -51,52 +53,99 @@ class _CoronaViewState extends State<CoronaView> {
                   ),
                   ElevatedButton(
                       onPressed: () => {
-                            print(country),
                             cubit.getCorona(country.toString()),
                           },
-                      child: Text('Serach')),
-
+                      child: const Text('Search')),
                   cubit.corona?.countryInfo == null
-                      ? Text('')
+                      ? const Text('')
                       : Image.network(
                           cubit.corona!.countryInfo!.flag.toString(),
                           fit: BoxFit.cover,
                         ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
-                  Container(
-                    padding:EdgeInsets.all(10),
-                    height: 55,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-
-                        colors: [
-                          Colors.cyan,
-                          Colors.indigo,
-                        ],
-                      ),
-                      border: Border.all(
-                        width: 2,
-                        color: Colors.blueAccent,
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(Icons.ac_unit),
-                        Text(
-                          'Cases :',
-                          style: TextStyle(fontSize: 20),
+                  Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        height: 55,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white,
+                          border: Border.all(
+                            width: 2,
+                            color: Colors.blueAccent,
+                          ),
                         ),
-                        cubit.corona == null
-                            ? Text('')
-                            : Text(cubit.corona!.cases.toString(),
-                                style: TextStyle(fontSize: 20)),
-                      ],
-                    ),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.person),
+                            const Text(
+                              'Cases : ',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            cubit.corona == null
+                                ? const Text('')
+                                : Text(cubit.corona!.cases.toString(),
+                                style: const TextStyle(fontSize: 20)),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 10,),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        height: 55,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white,
+                          border: Border.all(
+                            width: 2,
+                            color: Colors.blueAccent,
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.person),
+                            const Text(
+                              'Today Cases : ',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            cubit.corona == null
+                                ? const Text('')
+                                : Text(cubit.corona!.todayCases.toString(),
+                                style: const TextStyle(fontSize: 20)),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 10,),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        height: 55,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white,
+                          border: Border.all(
+                            width: 2,
+                            color: Colors.blueAccent,
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.person),
+                            const Text(
+                              'Deaths : ',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            cubit.corona == null
+                                ? const Text('')
+                                : Text(cubit.corona!.deaths.toString(),
+                                style: const TextStyle(fontSize: 20)),
+                          ],
+                        ),
+                      ),
+                    ],
+
                   )
                 ],
               ),

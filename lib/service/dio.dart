@@ -10,8 +10,7 @@ class DioHelper {
     ));
   }
 
-  bool now=true;
-  bool strict=true;
+
   static Future<Response> getData({
     Map<String, dynamic>? query,
     required String url,

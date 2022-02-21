@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   DioHelper.init();
-  runApp( AppRoot());
+  runApp( const AppRoot());
 
 }
 

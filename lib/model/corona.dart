@@ -24,35 +24,35 @@ class Corona {
   double? criticalPerOneMillion;
 
   Corona(
-      {this.updated,
-        this.country,
-        this.countryInfo,
-        this.cases,
-        this.todayCases,
-        this.deaths,
-        this.todayDeaths,
-        this.recovered,
-        this.todayRecovered,
-        this.active,
-        this.critical,
-        this.casesPerOneMillion,
-        this.deathsPerOneMillion,
-        this.tests,
-        this.testsPerOneMillion,
-        this.population,
-        this.continent,
-        this.oneCasePerPeople,
-        this.oneDeathPerPeople,
-        this.oneTestPerPeople,
-        this.activePerOneMillion,
-        this.recoveredPerOneMillion,
-        this.criticalPerOneMillion});
+      {updated,
+        country,
+        countryInfo,
+        cases,
+        todayCases,
+        deaths,
+        todayDeaths,
+        recovered,
+        todayRecovered,
+        active,
+        critical,
+        casesPerOneMillion,
+        deathsPerOneMillion,
+        tests,
+        testsPerOneMillion,
+        population,
+        continent,
+        oneCasePerPeople,
+        oneDeathPerPeople,
+        oneTestPerPeople,
+        activePerOneMillion,
+        recoveredPerOneMillion,
+        criticalPerOneMillion});
 
   Corona.fromJson(Map<String, dynamic> json) {
     updated = json['updated'];
     country = json['country'];
     countryInfo = json['countryInfo'] != null
-        ? new CountryInfo.fromJson(json['countryInfo'])
+        ? CountryInfo.fromJson(json['countryInfo'])
         : null;
     cases = json['cases'];
     todayCases = json['todayCases'];
@@ -77,32 +77,32 @@ class Corona {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['updated'] = this.updated;
-    data['country'] = this.country;
-    if (this.countryInfo != null) {
-      data['countryInfo'] = this.countryInfo!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['updated'] = updated;
+    data['country'] = country;
+    if (countryInfo != null) {
+      data['countryInfo'] = countryInfo!.toJson();
     }
-    data['cases'] = this.cases;
-    data['todayCases'] = this.todayCases;
-    data['deaths'] = this.deaths;
-    data['todayDeaths'] = this.todayDeaths;
-    data['recovered'] = this.recovered;
-    data['todayRecovered'] = this.todayRecovered;
-    data['active'] = this.active;
-    data['critical'] = this.critical;
-    data['casesPerOneMillion'] = this.casesPerOneMillion;
-    data['deathsPerOneMillion'] = this.deathsPerOneMillion;
-    data['tests'] = this.tests;
-    data['testsPerOneMillion'] = this.testsPerOneMillion;
-    data['population'] = this.population;
-    data['continent'] = this.continent;
-    data['oneCasePerPeople'] = this.oneCasePerPeople;
-    data['oneDeathPerPeople'] = this.oneDeathPerPeople;
-    data['oneTestPerPeople'] = this.oneTestPerPeople;
-    data['activePerOneMillion'] = this.activePerOneMillion;
-    data['recoveredPerOneMillion'] = this.recoveredPerOneMillion;
-    data['criticalPerOneMillion'] = this.criticalPerOneMillion;
+    data['cases'] = cases;
+    data['todayCases'] = todayCases;
+    data['deaths'] = deaths;
+    data['todayDeaths'] = todayDeaths;
+    data['recovered'] = recovered;
+    data['todayRecovered'] = todayRecovered;
+    data['active'] = active;
+    data['critical'] = critical;
+    data['casesPerOneMillion'] = casesPerOneMillion;
+    data['deathsPerOneMillion'] = deathsPerOneMillion;
+    data['tests'] = tests;
+    data['testsPerOneMillion'] = testsPerOneMillion;
+    data['population'] = population;
+    data['continent'] = continent;
+    data['oneCasePerPeople'] = oneCasePerPeople;
+    data['oneDeathPerPeople'] = oneDeathPerPeople;
+    data['oneTestPerPeople'] = oneTestPerPeople;
+    data['activePerOneMillion'] = activePerOneMillion;
+    data['recoveredPerOneMillion'] = recoveredPerOneMillion;
+    data['criticalPerOneMillion'] = criticalPerOneMillion;
     return data;
   }
 }
@@ -115,7 +115,7 @@ class CountryInfo {
   int? long;
   String? flag;
 
-  CountryInfo({this.iId, this.iso2, this.iso3, this.lat, this.long, this.flag});
+  CountryInfo({iId, iso2, iso3, lat, long, flag});
 
   CountryInfo.fromJson(Map<String, dynamic> json) {
     iId = json['_id'];
@@ -127,13 +127,13 @@ class CountryInfo {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.iId;
-    data['iso2'] = this.iso2;
-    data['iso3'] = this.iso3;
-    data['lat'] = this.lat;
-    data['long'] = this.long;
-    data['flag'] = this.flag;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = iId;
+    data['iso2'] = iso2;
+    data['iso3'] = iso3;
+    data['lat'] = lat;
+    data['long'] = long;
+    data['flag'] = flag;
     return data;
   }
 }
