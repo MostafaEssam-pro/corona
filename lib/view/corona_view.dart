@@ -65,6 +65,7 @@ class _CoronaViewState extends State<CoronaView> {
                   const SizedBox(
                     height: 25,
                   ),
+                  cubit.corona != null?
                   Column(
                     children: [
                       Container(
@@ -146,7 +147,7 @@ class _CoronaViewState extends State<CoronaView> {
                       ),
                     ],
 
-                  )
+                  ):const Text('')
                 ],
               ),
             ),
